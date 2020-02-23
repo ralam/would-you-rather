@@ -1,0 +1,26 @@
+.questions {
+  grid-column: 1 / span 2;
+
+  .question-container {
+    width: 50%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+
+    .question {
+      grid-column: 1 / span 3;
+    }
+
+    .option-1 {
+      grid-column: 1;
+    }
+
+    .option-divider {
+      grid-column: 2;
+    }
+
+    .option-2 {
+      grid-column: 3;
+    }
+  }
+}

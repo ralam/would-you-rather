@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { handleInitialData } from '../../actions/shared';
 import Home from '../home/Home';
 
-import './App.scss';
-
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());

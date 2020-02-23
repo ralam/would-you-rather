@@ -9,6 +9,7 @@ import './Login.scss';
 class Login extends Component {
   handleClick = userId => {
     this.props.dispatch(setAuthedUser(userId));
+    this.props.dispatch(hideAuthModal());
   };
 
   closeModal = () => {
@@ -20,18 +21,18 @@ class Login extends Component {
     return (
       <div
         className={'modal-mask ' + (visible ? 'visible' : 'hidden')}
-        onClick={this.closeModal}
-      >
-        <div className="login-modal">
-          <div className="close-btn">x</div>
+        onClick={this.closeModal}>
+        <div className="login-modal" onClick={e => e.stopPropagation()}>
+          <div className="close-btn" onClick={this.closeModal}>
+            x
+          </div>
           <h1 className="header">Choose a user to log in as:</h1>
           <ul className="users">
             {users.map(user => (
               <li
                 className="user"
                 key={user.id}
-                onClick={() => this.handleClick(user.id)}
-              >
+                onClick={() => this.handleClick(user.id)}>
                 {user.name}
               </li>
             ))}

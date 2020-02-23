@@ -1,5 +1,6 @@
 .home {
   text-align: center;
+  margin: 0 20%;
 
   .btn {
     color: #fff;
@@ -10,6 +11,20 @@
     cursor: pointer;
     &:focus {
       outline: none;
+    }
+  }
+
+  .questions-container {
+    display: grid;
+
+    .unanswered-questions {
+      grid-column: 1;
+      cursor: pointer;
+    }
+
+    .answered-questions {
+      grid-column: 2;
+      cursor: pointer;
     }
   }
 }
