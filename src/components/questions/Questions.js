@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './Questions.scss';
 
@@ -27,15 +28,17 @@ class Questions extends Component {
     return (
       <div className="questions">
         {visibleQuestions.map((question, idx) => (
-          <div key={question.id} className="question-container">
-            <div className="question">Would you rather:</div>
-            <div className="question">
-              {new Date(question.timestamp).toDateString()}
+          <Link key={question.id} to={`/question/${question.id}`}>
+            <div className="question-container">
+              <div className="question">Would you rather:</div>
+              <div className="question">
+                {new Date(question.timestamp).toDateString()}
+              </div>
+              <div className="option-1">{question.optionOne.text}</div>
+              <div className="option-divider">OR</div>
+              <div className="option-2">{question.optionTwo.text}</div>
             </div>
-            <div className="option-1">{question.optionOne.text}</div>
-            <div className="option-divider">OR</div>
-            <div className="option-2">{question.optionTwo.text}</div>
-          </div>
+          </Link>
         ))}
       </div>
     );

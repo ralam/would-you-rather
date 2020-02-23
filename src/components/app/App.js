@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { handleInitialData } from '../../actions/shared';
 import Home from '../home/Home';
+import Question from '../question/Question';
 
 class App extends Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" exact component={Home} />
+        <Route path="/question/:id" component={Question} />
       </Router>
     );
   }
