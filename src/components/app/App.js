@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { handleInitialData } from '../../actions/shared';
 import Home from '../home/Home';
+import Login from '../login/Login';
 import Question from '../question/Question';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
       <Router>
         <Route path="/" exact component={Home} />
         <Route path="/question/:id" component={Question} />
+        <Login />
       </Router>
     );
   }

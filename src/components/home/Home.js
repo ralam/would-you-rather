@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { unsetAuthedUser } from '../../actions/authedUser';
 import { showAuthModal } from '../../actions/modals';
-import Login from '../login/Login';
 import Questions from '../questions/Questions';
 
 import './Home.scss';
@@ -63,7 +62,6 @@ class Home extends Component {
           <button className="btn login" onClick={this.showLoginModal}>
             Log in
           </button>
-          <Login />
         </div>
       );
     }
