@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import { showAuthModal } from '../../actions/modals';
+import { saveQuestionAnswer } from '../../actions/questions';
 import defaultAvatar from '../../assets/blank-avatar.jpg';
 import './Question.scss';
 
@@ -44,7 +44,26 @@ class Question extends Component {
         </div>
       );
     } else {
-      return <div></div>;
+      return (
+        <div className="results">
+          <div className="option-1">
+            <button
+              className="btn vote"
+              onClick={() => {
+                this.handleVote(question.id, user.id, 'optionOne');
+              }}>
+              Vote
+            </button>
+          </div>
+          <div
+            className="option-2"
+            onClick={() => {
+              this.handleVote(question.id, user.id, 'optionTwo');
+            }}>
+            <button className="btn vote">Vote</button>
+          </div>
+        </div>
+      );
     }
   };
 
@@ -53,6 +72,7 @@ class Question extends Component {
       return <div></div>;
     } else {
       const author = Object.values(users).find(u => u.id === question.author);
+      if (!author) debugger;
       const avatarUrl = author.avatarURL || defaultAvatar;
       return (
         <div className="avatar-container">
@@ -65,6 +85,13 @@ class Question extends Component {
   showLoginModal = e => {
     e.preventDefault();
     this.props.dispatch(showAuthModal());
+  };
+
+  handleVote = (questionId, userId, answer) => {
+    console.log('question id: ', questionId);
+    console.log('user id: ', userId);
+    console.log('answer: ', answer);
+    this.props.dispatch(saveQuestionAnswer(questionId, userId, answer));
   };
 
   render() {

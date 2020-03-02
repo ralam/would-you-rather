@@ -36,7 +36,31 @@
   }
 
   .results .voted {
-    border: 2px solid green;
+    border: 2px solid #41c300;
     font-weight: 700;
+  }
+}
+
+.login-prompt {
+  text-align: center;
+  margin: 0 20%;
+}
+
+.btn {
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+
+  &.login {
+    background-color: #6002ee;
+  }
+
+  &.vote {
+    background-color: #41c300;
   }
 }
