@@ -6,6 +6,7 @@ import { handleInitialData } from '../../actions/shared';
 import Home from '../home/Home';
 import Login from '../login/Login';
 import Question from '../question/Question';
+import Leaderboard from '../leaderboard/Leaderboard';
 
 class App extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" exact component={Home} />
+        <Route path="/leaderboard" exact component={Leaderboard} />
         <Route path="/question/:id" component={Question} />
         <Login />
       </Router>

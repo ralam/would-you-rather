@@ -73,7 +73,6 @@ class Question extends Component {
       return <div></div>;
     } else {
       const author = Object.values(users).find(u => u.id === question.author);
-      if (!author) debugger;
       const avatarUrl = author.avatarURL || defaultAvatar;
       return (
         <div className="avatar-container">
