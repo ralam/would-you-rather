@@ -1,0 +1,36 @@
+.container {
+  text-align: center;
+  margin: 0 35%;
+
+  .new-question {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    p,
+    input {
+      flex-basis: 100%;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .would-you-rather {
+      text-align: left;
+    }
+
+    input[type='text'] {
+      padding: 0.5em;
+    }
+
+    input[type='submit'] {
+      margin-left: 25%;
+      flex-basis: 50%;
+      font-weight: 700;
+      color: #ffffff;
+      background-color: #41c300;
+      padding: 10px 20px;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+}

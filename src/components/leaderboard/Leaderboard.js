@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './Leaderboard.scss';
 import defaultAvatar from '../../assets/blank-avatar.jpg';
+import './Leaderboard.scss';
 
 class Leaderboard extends Component {
   render() {
