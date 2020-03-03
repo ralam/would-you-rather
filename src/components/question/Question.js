@@ -67,7 +67,8 @@ class Question extends Component {
     }
   };
 
-  generateAuthorAvatar = (question, users) => {
+  generateAuthorAvatar = question => {
+    const { users } = this.props;
     if (!question || !users) {
       return <div></div>;
     } else {
@@ -88,23 +89,19 @@ class Question extends Component {
   };
 
   handleVote = (questionId, userId, answer) => {
-    console.log('question id: ', questionId);
-    console.log('user id: ', userId);
-    console.log('answer: ', answer);
     this.props.dispatch(saveQuestionAnswer(questionId, userId, answer));
   };
 
   render() {
-    const { user, questions, match, users } = this.props;
+    const { user, questions, match } = this.props;
     const id = match.params.id;
     const question = questions[id];
-    console.log(question);
     if (user) {
-      return (
-        <div>
-          {question && (
+      if (question) {
+        return (
+          <div>
             <div className="question-container">
-              {this.generateAuthorAvatar(question, users)}
+              {this.generateAuthorAvatar(question)}
               <div className="options">
                 <div className="question">Would you rather:</div>
                 <div className="option-1">{question.optionOne.text}</div>
@@ -112,14 +109,20 @@ class Question extends Component {
                 <div className="option-2">{question.optionTwo.text}</div>
               </div>
               {this.generateQuestionAnswers(question, user)}
-              <div>user</div>
             </div>
-          )}
-        </div>
-      );
+          </div>
+        );
+      } else {
+        return (
+          <div className="container">
+            <p>404 Not Found</p>
+            <p>Sorry, there is no question on this page</p>
+          </div>
+        );
+      }
     } else {
       return (
-        <div className="login-prompt">
+        <div className="container">
           <p>Please login to view this poll</p>
           <button className="btn login" onClick={this.showLoginModal}>
             Log in
