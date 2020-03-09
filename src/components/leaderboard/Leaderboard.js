@@ -10,7 +10,7 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         {users.map(user => (
-          <div key={users.id} className="user">
+          <div key={user.id} className="user">
             <img className="avatar" src={user.avatarURL || defaultAvatar} />
             <div className="username">{user.name}</div>
             <div className="questions-asked">

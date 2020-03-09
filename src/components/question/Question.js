@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { showAuthModal } from '../../actions/modals';
-import { handleAddAnswer } from '../../actions/questions';
+import { handleAddAnswer } from '../../actions/shared';
 import defaultAvatar from '../../assets/blank-avatar.jpg';
 import './Question.scss';
 
