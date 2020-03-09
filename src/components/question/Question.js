@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { showAuthModal } from '../../actions/modals';
-import { saveQuestionAnswer } from '../../actions/questions';
+import { handleAddAnswer } from '../../actions/questions';
 import defaultAvatar from '../../assets/blank-avatar.jpg';
 import './Question.scss';
 
@@ -88,7 +88,7 @@ class Question extends Component {
   };
 
   handleVote = (questionId, userId, answer) => {
-    this.props.dispatch(saveQuestionAnswer(questionId, userId, answer));
+    this.props.dispatch(handleAddAnswer(questionId, userId, answer));
   };
 
   render() {
