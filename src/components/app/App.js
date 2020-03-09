@@ -8,6 +8,7 @@ import Login from '../login/Login';
 import Question from '../question/Question';
 import Leaderboard from '../leaderboard/Leaderboard';
 import NewPoll from '../newPoll/NewPoll';
+import NavBar from '../navbar/NavBar';
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
     const { authedUser } = this.props;
     return (
       <Router>
+        <NavBar />
         <Route path="/" exact component={Home} />
         <Route path="/leaderboard" exact component={Leaderboard} />
         <Route path="/add" exact component={NewPoll} />
