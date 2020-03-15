@@ -38,15 +38,27 @@ class Home extends Component {
 
   generateHomeContent(userId) {
     if (userId) {
+      const { activeTab } = this.state;
+      let answeredQuestionsClass = '';
+      let unansweredQuestionsClass = '';
+      if (activeTab === 'unanswered') {
+        unansweredQuestionsClass = 'active';
+      } else {
+        answeredQuestionsClass = 'active';
+      }
       const username = this.props.users[userId].name;
       return (
         <div>
           <div className="welcome">Welcome, {username}</div>
           <div className="questions-container">
-            <div className="unanswered-questions" onClick={this.showUnanswered}>
+            <div
+              className={`unanswered-questions ${unansweredQuestionsClass}`}
+              onClick={this.showUnanswered}>
               Unanswered Questions
             </div>
-            <div className="answered-questions" onClick={this.showAnswered}>
+            <div
+              className={`answered-questions ${answeredQuestionsClass}`}
+              onClick={this.showAnswered}>
               Answered Questions
             </div>
             <Questions activeTab={this.state.activeTab} />

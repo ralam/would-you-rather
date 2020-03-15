@@ -2,7 +2,7 @@
   grid-column: 1 / span 2;
 
   .question-container {
-    width: 50%;
+    width: 80%;
     margin: 10px auto;
     display: grid;
     grid-template-columns: 40% 20% 40%;
@@ -22,5 +22,8 @@
     .option-2 {
       grid-column: 3;
     }
+  }
+  .placeholder {
+    margin-top: 10px;
   }
 }

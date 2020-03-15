@@ -25,6 +25,10 @@ class Questions extends Component {
     visibleQuestions = visibleQuestions.sort(
       (a, b) => b.timestamp - a.timestamp
     );
+    let placeholder =
+      activeTab === 'unanswered'
+        ? 'You have answered all available questions!'
+        : 'You have not answered any questions.';
     return (
       <div className="questions">
         {visibleQuestions.map((question, idx) => (
@@ -40,6 +44,9 @@ class Questions extends Component {
             </div>
           </Link>
         ))}
+        {!visibleQuestions.length && (
+          <div className="placeholder">{placeholder}</div>
+        )}
       </div>
     );
   }
