@@ -13,7 +13,11 @@ class Leaderboard extends Component {
         <div className="container">
           {users.map(user => (
             <div key={user.id} className="user">
-              <img className="avatar" src={user.avatarURL || defaultAvatar} />
+              <img
+                className="avatar"
+                src={user.avatarURL || defaultAvatar}
+                alt="user avatar"
+              />
               <div className="username">{user.name}</div>
               <div className="questions-asked">
                 Questions asked: {user.questions.length}

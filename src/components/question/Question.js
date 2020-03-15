@@ -76,7 +76,7 @@ class Question extends Component {
       const avatarUrl = author.avatarURL || defaultAvatar;
       return (
         <div className="avatar-container">
-          <img className="avatar" src={avatarUrl} />
+          <img className="avatar" src={avatarUrl} alt="user avatar" />
         </div>
       );
     }
