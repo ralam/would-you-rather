@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { showAuthModal } from '../../actions/modals';
 import { handleAddAnswer } from '../../actions/shared';
+import Login from '../login/Login';
 import defaultAvatar from '../../assets/blank-avatar.jpg';
 import './Question.scss';
 
@@ -82,11 +82,6 @@ class Question extends Component {
     }
   };
 
-  showLoginModal = e => {
-    e.preventDefault();
-    this.props.dispatch(showAuthModal());
-  };
-
   handleVote = (questionId, userId, answer) => {
     this.props.dispatch(handleAddAnswer(questionId, userId, answer));
   };
@@ -123,9 +118,7 @@ class Question extends Component {
       return (
         <div className="container">
           <p>Please login to view this poll</p>
-          <button className="btn login" onClick={this.showLoginModal}>
-            Log in
-          </button>
+          <Login />
         </div>
       );
     }

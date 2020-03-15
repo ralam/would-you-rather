@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { unsetAuthedUser } from '../../actions/authedUser';
-import { showAuthModal } from '../../actions/modals';
 import Questions from '../questions/Questions';
+import Login from '../login/Login';
 
 import './Home.scss';
 
@@ -17,11 +17,6 @@ class Home extends Component {
 
   handleLogout = () => {
     this.props.dispatch(unsetAuthedUser());
-  };
-
-  showLoginModal = e => {
-    e.preventDefault();
-    this.props.dispatch(showAuthModal());
   };
 
   showUnanswered = () => {
@@ -69,13 +64,7 @@ class Home extends Component {
         </div>
       );
     } else {
-      return (
-        <div>
-          <button className="btn login" onClick={this.showLoginModal}>
-            Log in
-          </button>
-        </div>
-      );
+      return <Login />;
     }
   }
 

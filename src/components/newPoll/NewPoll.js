@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { showAuthModal } from '../../actions/modals';
 import { handleAddQuestion } from '../../actions/shared';
+import Login from '../login/Login';
 
 import './NewPoll.scss';
 
@@ -35,11 +35,6 @@ class NewPoll extends Component {
       optionTwo: '',
       toHome: true
     }));
-  };
-
-  showLoginModal = e => {
-    e.preventDefault();
-    this.props.dispatch(showAuthModal());
   };
 
   render() {
@@ -80,9 +75,7 @@ class NewPoll extends Component {
       return (
         <div className="container">
           <p>Please login to add a poll</p>
-          <button className="btn login" onClick={this.showLoginModal}>
-            Log in
-          </button>
+          <Login />
         </div>
       );
     }
